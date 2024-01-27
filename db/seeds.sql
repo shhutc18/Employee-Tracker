@@ -26,4 +26,4 @@ INSERT INTO employee (first_name, last_name, role_id, manager_id) VALUES
 
 UPDATE employee SET manager_id = 1 WHERE first_name = 'Mike' AND last_name = 'Chan';
 UPDATE employee SET manager_id = 3 WHERE first_name = 'Kevin' AND last_name = 'Tupik';
-UPDATE employee SET manager_id = 5 WHERE first_name = 'Sarah' AND last_name = 'Lourd';
+UPDATE employee SET manager_id = 6 WHERE first_name = 'Tom' AND last_name = 'Allen';
