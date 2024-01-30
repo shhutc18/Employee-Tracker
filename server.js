@@ -52,7 +52,6 @@ function viewRoles() {
 }
 
 function addEmployee() {
-    // First, fetch the current roles and managers from the database
     db.query('SELECT * FROM role', function (err, roles) {
         if (err) {
             console.log(err);
@@ -67,11 +66,9 @@ function addEmployee() {
                 return;
             }
 
-            // Then, create arrays of role titles and manager names
             const roleChoices = roles.map(role => role.title);
             const managerChoices = managers.map(manager => `${manager.first_name} ${manager.last_name}`);
 
-            // Now, prompt the user
             inquirer.prompt([
                 {
                     type: 'input',
@@ -96,7 +93,6 @@ function addEmployee() {
                     choices: managerChoices
                 }
             ]).then((answers) => {
-                // Find the selected role's and manager's IDs
                 const role = roles.find(role => role.title === answers.role_id);
                 answers.role_id = role.id;
 
@@ -138,7 +134,6 @@ function addDepartment() {
 }
 
 function addRole() {
-    // First, fetch the current departments from the database
     db.query('SELECT * FROM department', function (err, departments) {
         if (err) {
             console.log(err);
@@ -146,10 +141,8 @@ function addRole() {
             return;
         }
 
-        // Then, create an array of department names
         const departmentChoices = departments.map(department => department.name);
 
-        // Now, prompt the user
         inquirer.prompt([
             {
                 type: 'input',
@@ -168,7 +161,6 @@ function addRole() {
                 choices: departmentChoices
             }
         ]).then((answers) => {
-            // Find the selected department's ID
             const department = departments.find(department => department.name === answers.department_id);
             answers.department_id = department.id;
 
@@ -186,7 +178,6 @@ function addRole() {
 }
 
 function updateRole() {
-    // First, fetch the current employees and roles from the database
     db.query('SELECT * FROM employee', function (err, employees) {
         if (err) {
             console.log(err);
@@ -201,11 +192,9 @@ function updateRole() {
                 return;
             }
 
-            // Then, create arrays of employee names and role titles
             const employeeChoices = employees.map(employee => `${employee.first_name} ${employee.last_name}`);
             const roleChoices = roles.map(role => role.title);
 
-            // Now, prompt the user
             inquirer.prompt([
                 {
                     type: 'list',
@@ -220,7 +209,6 @@ function updateRole() {
                     choices: roleChoices
                 }
             ]).then((answers) => {
-                // Find the selected employee's and role's IDs
                 const employee = employees.find(employee => `${employee.first_name} ${employee.last_name}` === answers.id);
                 answers.id = employee.id;
 
