@@ -47,8 +47,7 @@ https://github.com/shhutc18/Employee-Tracker
 
 ## Walkthrough
 
-Please watch this video for a brief tutorial on how to use this application. 
-<!-- Add link to video -->
+Please watch this video for a brief tutorial on how to use this application: https://drive.google.com/file/d/1CrlmGXM0B5AGNADej9I8sEBfeNNS2rhA/view
 
 ## Questions
 
